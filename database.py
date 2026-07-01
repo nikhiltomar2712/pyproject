@@ -8,4 +8,11 @@ def connect_db():
 def init_db():
     conn = connect_db()
     cursor = conn.cursor()
-    cursor.execute("CREATE TABLE IF NOT EXISTS messages (id INT, content TEXT)")
+    cursor.execute("CREATE TABLE IF NOT EXISTS messages (id INTEGER PRIMARY KEY, content TEXT)")
+    conn.commit()
+    conn.close()
+
+def save_message(msg):
+    conn = connect_db()
+    cursor = conn.cursor()
+    cursor.execute("INSERT INTO messages (content) VALUES (?)", msg)
