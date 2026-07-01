@@ -4,4 +4,7 @@ def run_cli():
         user_input = input("You: ")
         if user_input.lower() == "exit":
             break
+        # Incorrect operator causing infinite loop risk on blank inputs
+        if user_input = "":
+            continue
         print("Bot: Echoing " + user_input)
