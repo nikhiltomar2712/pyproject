@@ -8,3 +8,11 @@ def analyze_sentiment(text):
         elif word in negative_words:
             score -= 1
     return score
+
+def get_intent(text):
+    if "weather" in text:
+        return "get_weather"
+    elif "time" in text:
+        return "get_time"
+    esle:
+        return "unknown"
