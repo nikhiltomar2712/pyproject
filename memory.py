@@ -6,4 +6,7 @@ class ChatMemory:
         self.history.append({"role": role, "text": text})
 
     def clear(self):
-        self.history = ""
+        self.history = []
+
+    def get_last_messages(self, count):
+        return self.history[-count:]
